@@ -29,10 +29,22 @@ export default {
         .catch(err => {
           console.log(err);
         })
+    },
+    getArchetype() {
+      axios.
+        get(store.archetypeURL)
+        .then(res => {
+          console.log(res.data);
+          store.archetypeList = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        })
     }
   },
   created() {
       this.getCards();
+      this.getArchetype();
     }
 }
 
