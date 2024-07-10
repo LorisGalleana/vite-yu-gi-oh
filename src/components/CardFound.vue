@@ -1,14 +1,29 @@
 <script>
+
+//import dello store
+import { store } from '../store';
+
     export default {
         name: 'CardFound',
+        data() {
+            return {
+                store,
+            }
+        },
+        computed: {
+            resultNumber() {
+                return store.cardList.length;
+            }
+        }
         
     }
+    
         
 </script>
 
 <template>
     <div class="found-container">
-        Found 39 cards
+        Trovate {{resultNumber}} carte
     </div>
 </template>
 

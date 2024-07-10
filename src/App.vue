@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import UpperBar from './components/UpperBar.vue'
 import MainPage from './components/MainPage.vue'
+import SelectArchetype from './components/SelectArchetype.vue'
 
 //import dello store
 import { store } from './store';
@@ -12,6 +13,7 @@ export default {
   components: {
     UpperBar,
     MainPage,
+    SelectArchetype
   },
   data() {
     return {
@@ -20,8 +22,14 @@ export default {
   },
   methods: {
     getCards() {
+      let endPoint = store.apiURL;
+
+      if(store.searchCard !== '') {
+        endPoint += `&${store.apiArchetypeParam}=${store.searchCard}`
+      }
+
       axios.
-        get(store.apiURL)
+        get(endPoint)
         .then(res => {
           console.log(res.data.data);
           store.cardList = res.data.data;
@@ -34,7 +42,7 @@ export default {
       axios.
         get(store.archetypeURL)
         .then(res => {
-          console.log(res.data);
+          /* console.log(res.data); */
           store.archetypeList = res.data;
         })
         .catch(err => {
@@ -52,6 +60,7 @@ export default {
 
 <template>
   <UpperBar  />
+  <SelectArchetype @search="getCards" />
   <MainPage  />
 </template>
 

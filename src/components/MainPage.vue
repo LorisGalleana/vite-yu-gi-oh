@@ -1,5 +1,4 @@
 <script>
-import SelectArchetype from './SelectArchetype.vue'
 import CardContainer from './CardContainer.vue'
 
 //import dello store
@@ -8,7 +7,6 @@ import { store } from '../store';
     export default {
         name: 'MainPage',
         components: {
-            SelectArchetype,
             CardContainer,
         },
         data() {
@@ -22,7 +20,6 @@ import { store } from '../store';
 
 <template>
     <div class="component-container">
-        <SelectArchetype  />
         <CardContainer  />
     </div>
 </template>

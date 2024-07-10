@@ -6,10 +6,6 @@ import { store } from '../store';
 
     export default {
         name: 'SelectArchetype',
-        components: {
-            /* CardFound,
-            SingleCard, */
-        },
         data() {
             return {
                 store,
@@ -21,9 +17,9 @@ import { store } from '../store';
 
 <template>
     <div class="card-archetype">
-        <select name="archetype" class="archetype">
-            <option value="neutral">---</option>
-            <option value="store.archetypeList" v-for="archetype in store.archetypeList" :key="archetype.archetype_name">{{ archetype.archetype_name }} </option>
+        <select name="archetype" class="archetype" @change="$emit('search')" v-model="store.searchCard">
+            <option value="" >---</option>
+            <option :value="archetype.archetype_name" v-for="archetype in store.archetypeList" :key="archetype.archetype_name">{{ archetype.archetype_name }} </option>
         </select>
     </div>
 </template>
@@ -36,6 +32,9 @@ import { store } from '../store';
         width: 80%;
         margin: 1% auto;
         padding-left: 10px;
+        position: absolute;
+        left: 10%;
+        top: 8%;
 
     }
     .archetype {
