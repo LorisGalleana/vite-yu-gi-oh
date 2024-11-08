@@ -1,13 +1,21 @@
-Esercizio di oggi: Vite Yu-Gi-Oh
+# VITE-YU-GI-OH
 
-nome repo: vite-yu-gi-oh
+## Descrizione
 
-Descrizione:
+Questo progetto, realizzato con **Vite** e **Vue 3**, utilizza l'API di Yu-Gi-Oh! per mostrare un elenco dinamico di carte del gioco. All'avvio dell'applicazione, viene eseguita una richiesta AJAX per ottenere i dati delle carte, che vengono poi visualizzate sotto forma di card. Per migliorare l’esperienza utente, il numero di carte caricate può essere limitato tramite i parametri `num` e `offset`.
 
-Create un nuovo progetto utilizzando Vite e Vue 3 e definite i componenti necessari per strutturare il layout come da screenshot allegato.
+### Funzionalità principali
 
-Al caricamento della pagina, effettuate una chiama ajax all’API di Yu Gi Oh: https://db.ygoprodeck.com/api/v7/cardinfo.php
-e con i dati restituiti, stampate una card per ogni carta.
+- **Visualizzazione carte**: recupero e visualizzazione dinamica delle carte Yu-Gi-Oh! utilizzando un componente per ciascuna card.
+- **Filtraggio per archetipo**: una select dinamica permette di filtrare i risultati delle carte in base all’archetipo, popolando le opzioni tramite un’ulteriore chiamata all'API.
+- **Loader**: componente di caricamento visualizzato fino a quando i dati non sono pronti.
 
-ATTENZIONE: l’api restituisce tutti i risultati in un colpo solo. Per evitare attese e/o rallentamenti nelle richieste, potete diminuire il numero di risultati sfruttando i parametri num e offset
-https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0
+### Bonus
+
+- **Contatore di risultati**: componente aggiuntivo che mostra il numero totale di risultati ottenuti dalla ricerca.
+
+### Tecnologie utilizzate
+
+- **Vite** per la configurazione e l'esecuzione del progetto.
+- **Vue 3** per la gestione dinamica dei componenti e dello stato.
+- **AJAX** per interagire con l’API di Yu-Gi-Oh!.
